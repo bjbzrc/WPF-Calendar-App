@@ -8,11 +8,12 @@
         Title="MainWindow" Height="400" Width="600"
         MinHeight="380" MinWidth="350">
     <Grid>
-        <Calendar HorizontalAlignment="Left" Margin="100,50,0,0" Height="168" VerticalAlignment="Top"/>
-        <Button Content="Select" HorizontalAlignment="Left" Margin="235,295,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button Content="Up" HorizontalAlignment="Left" Margin="135,281,0,0" VerticalAlignment="Top" Width="70"/>
-        <Button Content="Down" HorizontalAlignment="Left" Margin="135,301,0,0" VerticalAlignment="Top" Width="70"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,281,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="34"/>
+        <Calendar x:Name="aptCal" HorizontalAlignment="Left" Margin="100,50,0,0" Height="168" VerticalAlignment="Top"/>
+        <Button Click="setAptBtn" Content="Select" HorizontalAlignment="Left" Margin="235,295,0,0" VerticalAlignment="Top" Width="65"/>
+        <Button Click="incrementTime" Content="Up" HorizontalAlignment="Left" Margin="135,281,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button Click="decrementTime" Content="Down" HorizontalAlignment="Left" Margin="135,301,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="inputTime" IsReadOnly="True" IsReadOnlyCaretVisible="True" HorizontalAlignment="Left" Margin="10,281,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="34"/>
+        <Label x:Name="aptText" Content="Label" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

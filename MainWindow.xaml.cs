@@ -24,6 +24,24 @@ namespace BrandonButtlarChallengeM5
         {
             InitializeComponent();
             var datet1 = new DateTime();
+            datet1 = DateTime.Now.ToLocalTime();
+            inputTime.Text = datet1.ToString("t");
+            aptText.Content = inputTime.CaretIndex;
+        }
+
+        private void setAptBtn(object sender, RoutedEventArgs e)
+        {
+            aptText.Content = "Appointment button pressed. TextBox caret index = " + inputTime.CaretIndex;
+        }
+
+        private void incrementTime(object sender, RoutedEventArgs e)
+        {
+            aptText.Content = "Up button pressed. TextBox caret index = " + inputTime.CaretIndex;
+        }
+
+        private void decrementTime(object sender, RoutedEventArgs e)
+        {
+            aptText.Content = "Down button pressed. TextBox caret index = " + inputTime.CaretIndex;
         }
     }
 }
