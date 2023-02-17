@@ -1,2 +1,2 @@
-# BrandonButtlarChallengeM5
+# WPF Calendar App
 WPF app made to learn WPF basics. 
