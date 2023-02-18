@@ -6,14 +6,15 @@
         xmlns:local="clr-namespace:BrandonButtlarChallengeM5"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600"
-        MinHeight="380" MinWidth="350">
-    <Grid FocusManager.FocusedElement="{Binding ElementName=aptText}">
-        <Calendar x:Name="aptCal" HorizontalAlignment="Left" Margin="100,50,0,0" Height="168" VerticalAlignment="Top"/>
-        <Button Click="setAptBtn" Content="Select" HorizontalAlignment="Left" Margin="235,295,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button Click="incrementTime" Content="Up" HorizontalAlignment="Left" Margin="135,281,0,0" VerticalAlignment="Top" Width="70"/>
-        <Button Click="decrementTime" Content="Down" HorizontalAlignment="Left" Margin="135,301,0,0" VerticalAlignment="Top" Width="70"/>
+        MinHeight="380" MinWidth="500">
+    
+    <Grid>
+        <Calendar x:Name="aptCal" HorizontalAlignment="Left" Margin="100,50,0,0" Height="168" VerticalAlignment="Top" Focusable="False"/>
+        <Button Click="SetAptBtn" Content="Select" HorizontalAlignment="Left" Margin="235,295,0,0" VerticalAlignment="Top" Width="65" IsDefault="True"/>
+        <Button Click="UpBtn" Content="Up" HorizontalAlignment="Left" Margin="135,281,0,0" VerticalAlignment="Top" Width="70" Focusable="False"/>
+        <Button Click="DownBtn" Content="Down" HorizontalAlignment="Left" Margin="135,301,0,0" VerticalAlignment="Top" Width="70" Focusable="False"/>
         <TextBox x:Name="inputTime" IsReadOnly="True" IsReadOnlyCaretVisible="True" HorizontalAlignment="Left" Margin="10,281,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="34"/>
-        <TextBox x:Name="aptText" Text="Please select an appointment time" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top" IsReadOnly="True"/>
-
+        <TextBox x:Name="aptText" Text="Please select an appointment time" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top" IsReadOnly="True" Focusable="False"/>
     </Grid>
+    
 </Window>
