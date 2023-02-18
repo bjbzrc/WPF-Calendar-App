@@ -40,6 +40,7 @@ namespace BrandonButtlarChallengeM5
             int dayDiff = aptDate.DayOfYear - DateTime.Now.DayOfYear;
 
             if (dayDiff == 1) {
+                // I should extract this into a method instead
                 aptText.Text = $"Your appointment is on {formattedAptDate}. " +
                     $"It's {dayDiff} day from today.";
             }
