@@ -20,81 +20,76 @@ namespace BrandonButtlarChallengeM5
     /// </summary>
     public partial class MainWindow : Window
     {
-        static int timesHoursChanged = 0;
-        static int timesMinutesChanged = 0;
-        static int currentCaret = 0;
+        public int currentCaret = 0;
+        public DateTime date1 = new DateTime(2023, 1, 1, 0, 0, 0);
 
         public MainWindow()
         {
             InitializeComponent();
-            DateTime date1 = new DateTime();
-            date1 = DateTime.Now.ToLocalTime();
+            aptCal.SelectedDate = date1;
             inputTime.Text = date1.ToString("hh:mm tt");
-            currentCaret = inputTime.CaretIndex;
-            aptCal.SelectedDate = DateTime.Now;
         }
 
         private void setAptBtn(object sender, RoutedEventArgs e)
         {
-            aptCal.SelectedDate.ToString();
-            aptText.Text = "Appointment button pressed. Selected Date: " + aptCal.SelectedDate.ToString();
+            DateTime curDate = new DateTime();
+            curDate = DateTime.Now;
+            int dayDiff = curDate.Day - date1.Day;
+            aptCal.SelectedDate = date1;
+            aptText.Text = $"Your appointment is on {aptCal.SelectedDate}. " +
+                $"It's {dayDiff} days from today.";
         }
 
         private void incrementTime(object sender, RoutedEventArgs e)
         {
-            var date2 = new DateTime();
-            date2 = DateTime.Now.ToLocalTime();
+            currentCaret = inputTime.CaretIndex;
+
             switch (inputTime.CaretIndex)
             {
                 case int i when i < 3:
-                    ++timesHoursChanged;
-                    date2 = date2.AddHours(timesHoursChanged);
-                    aptText.Text = $"Carret is {inputTime.CaretIndex}. time is = " + date2.ToString("hh:mm tt");
+                    date1 = date1.AddHours(1);
+                    aptText.Text = $"Caret is {inputTime.CaretIndex}. time is = {date1.ToString("hh:mm tt")}";
                     break;
                 case int i when i >= 3 && i < 6:
-                    ++timesMinutesChanged;
-                    date2 = date2.AddMinutes(timesMinutesChanged);
-                    aptText.Text = $"Carret is {inputTime.CaretIndex}. time is = " + date2.ToString("hh:mm tt");
+                    date1 = date1.AddMinutes(1);
+                    aptText.Text = $"Caret is {inputTime.CaretIndex}. time is = {date1.ToString("hh:mm tt")}";
                     break;
                 case int i when i >= 6:
-                    date2 = date2.AddHours(12);
-                    aptText.Text = $"Carret is {inputTime.CaretIndex}. time is = " + date2.ToString("hh:mm tt");
+                    date1 = date1.AddHours(12);
+                    aptText.Text = $"Caret is {inputTime.CaretIndex}. time is = {date1.ToString("hh:mm tt")}";
                     break;
                 default:
                     break;
             }
-            inputTime.Text = date2.ToString("hh:mm tt");
-            //aptText.Text = "Up button pressed. TextBox caret index = " + inputTime.CaretIndex;
-            //debug
-            //aptText.Content = date2.ToString("t");
-            //aptText.Content = "Up button pressed. TextBox caret index = " + inputTime.CaretIndex;
+
+            inputTime.Text = date1.ToString("hh:mm tt");
+            inputTime.CaretIndex = currentCaret;
         }
 
         private void decrementTime(object sender, RoutedEventArgs e)
         {
-            var date2 = new DateTime();
-            date2 = DateTime.Now.ToLocalTime();
+            currentCaret = inputTime.CaretIndex;
+
             switch (inputTime.CaretIndex)
             {
                 case int i when i < 3:
-                    --timesHoursChanged;
-                    date2 = date2.AddHours(timesHoursChanged);
-                    aptText.Text = $"Carret is {inputTime.CaretIndex}. time is = " + date2.ToString("hh:mm tt");
+                    date1 = date1.AddHours(-1);
+                    aptText.Text = $"Caret is {inputTime.CaretIndex}. time is = " + date1.ToString("hh:mm tt");
                     break;
                 case int i when i >= 3 && i < 6:
-                    --timesMinutesChanged;
-                    date2 = date2.AddMinutes(timesMinutesChanged);
-                    aptText.Text = $"Carret is {inputTime.CaretIndex}. time is = " + date2.ToString("hh:mm tt");
+                    date1 = date1.AddMinutes(-1);
+                    aptText.Text = $"Caret is {inputTime.CaretIndex}. time is = " + date1.ToString("hh:mm tt");
                     break;
                 case int i when i >= 6:
-                    date2 = date2.AddHours(12);
-                    aptText.Text = $"Carret is {inputTime.CaretIndex}. time is = " + date2.ToString("hh:mm tt");
+                    date1 = date1.AddHours(-12);
+                    aptText.Text = $"Caret is {inputTime.CaretIndex}. time is = " + date1.ToString("hh:mm tt");
                     break;
                 default:
                     break;
             }
-            inputTime.Text = date2.ToString("hh:mm tt");
-            //aptText.Text = "Down button pressed. TextBox caret index = " + inputTime.CaretIndex;
+
+            inputTime.Text = date1.ToString("hh:mm tt");
+            inputTime.CaretIndex = currentCaret;
         }
     }
 }
